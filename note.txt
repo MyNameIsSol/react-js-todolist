@@ -1,0 +1,63 @@
+let x = "GrateStack";
+{x}
+
+let array = ["user1", "user2", "user3", "user4", "user5"];
+<div>
+{
+    array.map(
+        (user) => {
+            return <h2>{user}</h2>
+        }
+        )
+}
+<div>
+
+let data = "boy";
+<div>
+{data === "boy" ? <h1>Boy</h1> : <h2>Girl</h2> }
+</div>
+
+
+const btnClick = () => {
+    console.log("Clicked");
+}
+<div>
+<button onClick={() => {btnClick()}}>Click Me</button>
+</div>
+
+const [x,setx] = useState(0);
+const btnClick = () => {
+    setx(x+1);
+}
+<div>
+<h1>{x}</h1>
+<button onClick={() => {btnClick()}}>Click Me</button>
+</div>
+
+const [x,setx] = useState(1);
+const btnClick = () => {
+    setx(x+1);
+}
+<div>
+<button onClick={() => {btnClick()}}>Click Me</button>
+<FirstComponent data={x}  fn={setx}/>
+</div>
+//FirstComponent
+export const FirstComponent = ({data,fn}) => {
+<div>
+<button onClick={() => {fn(10)}}>Set 10</button>
+{data}
+</div>
+}
+
+const [data, setData] = useState([]);
+const  inputRef = useRef(null);
+<div>
+    <input ref={inputRef}  type="text" name="" id="" />
+    <button type="submit" onClick={() => { setData([...data,inputRef.current.value]) }}>Submit</button>
+    {data.map(
+        (item,index) => {
+            return <h2 key={index}>{item}</h2>
+        }
+    )}
+</div>
